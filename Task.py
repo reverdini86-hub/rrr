@@ -14,8 +14,6 @@ def main():
     for j in range(m):
         if all(matrix[i][j] < 0 for i in range(n)):
             negative_columns.append(j + 1)
-
-    # Компактная проверка для строк (новый функционал)
     positive_rows = [i + 1 for i in range(n) if all(x > 0 for x in matrix[i])]
 
     print("\nИсходная матрица:")
@@ -26,8 +24,6 @@ def main():
         print(f"\nСтолбцы с только отрицательными элементами: {negative_columns}")
     else:
         print("\nНет столбцов с только отрицательными элементами")
-
-    # Вывод результата для строк
     if positive_rows:
         print(f"Строки с только положительными элементами: {positive_rows}")
     else:
@@ -35,3 +31,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
