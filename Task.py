@@ -9,23 +9,26 @@ def main():
             print(f"Ошибка: должно быть {m} элементов в строке")
             return
         matrix.append(row)
+    
     negative_columns = []
     for j in range(m):
-        all_negative = True
-
-        for i in range(n):
-            if matrix[i][j] >= 0:
-                all_negative = False
-                break
-        if all_negative:
+        if all(matrix[i][j] < 0 for i in range(n)):
             negative_columns.append(j + 1)
+    positive_rows = [i + 1 for i in range(n) if all(x > 0 for x in matrix[i])]
+
     print("\nИсходная матрица:")
     for row in matrix:
         print(" ".join(f"{x:8.2f}" for x in row))
 
     if negative_columns:
-        print(f"\nСтолбцы, содержащие только отрицательные элементы: {negative_columns}")
+        print(f"\nСтолбцы с только отрицательными элементами: {negative_columns}")
     else:
-        print("\nНет столбцов, содержащих только отрицательные элементы")
+        print("\nНет столбцов с только отрицательными элементами")
+    if positive_rows:
+        print(f"Строки с только положительными элементами: {positive_rows}")
+    else:
+        print("Строк с только положительными элементами нет")
+
 if __name__ == "__main__":
     main()
+
