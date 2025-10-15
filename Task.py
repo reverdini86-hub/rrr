@@ -12,7 +12,6 @@ def main():
     negative_columns = []
     for j in range(m):
         all_negative = True
-
         for i in range(n):
             if matrix[i][j] >= 0:
                 all_negative = False
@@ -22,10 +21,9 @@ def main():
     print("\nИсходная матрица:")
     for row in matrix:
         print(" ".join(f"{x:8.2f}" for x in row))
-
     if negative_columns:
         print(f"\nСтолбцы, содержащие только отрицательные элементы: {negative_columns}")
     else:
         print("\nНет столбцов, содержащих только отрицательные элементы")
 if __name__ == "__main__":
-    main()
+    main
